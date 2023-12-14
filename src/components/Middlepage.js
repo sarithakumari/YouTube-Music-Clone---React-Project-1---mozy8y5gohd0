@@ -64,37 +64,3 @@ export default function Middlepage() {
 
 
 
-
-
-import React, { useState } from 'react';
-const SongList = ({ songs, getSongDetails }) => {
-const [selectedSong, setSelectedSong] = useState(null);
-const handleImageClick = async (songId) => {
-const details = await getSongDetails(songId);
-setSelectedSong(details);
-};
-return (
-<div>
-{songs.map((song) => (
-<div key={song.id}>
-<img
-src={song.imageUrl}
-alt={song.title}
-onClick={() => handleImageClick(song.id)}/>
-</div>
-))}
-{selectedSong && (
-<div>
-<h2>{selectedSong.title}</h2>
-<p>{selectedSong.description}</p>
-{/* Display other song details */}
-</div>
-)}
-</div>
-);
-};
-export default SongList;
-
-
-
-
